@@ -1,0 +1,8 @@
+*.pyc
+*~
+/.vscode
+__pychache__
+anime
+db.sqlite3
+/static
+.DS_store

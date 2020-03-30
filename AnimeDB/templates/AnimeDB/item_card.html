@@ -1,0 +1,96 @@
+<div class="row">
+    <div class="col-3">
+        <p>タイトル</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.title }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>保管場所</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.place }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>TV/映画</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.get_type_display }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>メディア形式</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.get_media_display }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>制作年</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.year }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>話数</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.epsode_number }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>巻数</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.media_number }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>制作会社</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.production }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>主演声優</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.voiceactor }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>監督</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.director }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>備考</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.memo|linebreaksbr }}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <p>登録日</p>
+    </div>
+    <div class="col-6">
+        <p>{{ item.created_a|date:"Y/m/d G:i:s" }}</p>
+    </div>
+</div>
