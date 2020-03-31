@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*l5aod1tqsas=o7*-duqdz6=01z*j+dx(m6p*^^2ek*%24er&i'
+SECRET_KEY = '2-(qlk(f47&$f0-i$8&ln8_lm=-3x#kbv3kw0xr08c952svv3-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -127,3 +127,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 # django-crispy-forms 設定
 CRIPSY_TEMPLATE_PACK = 'bootstrap4'
+
+if 'DYNO' in os.environ:
+    django_heroku.settings(locals())

@@ -1,1 +1,1 @@
-web: gunicorn congig.wsgi --log-file -
+web: gunicorn AnimeDatabase.wsgi --log-file -
