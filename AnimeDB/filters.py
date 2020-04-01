@@ -1,6 +1,7 @@
 
 from django_filters import filters
 from django_filters import FilterSet
+from django.db import models
 from .models import Item
 
 class MyOrderingFilter(filters.OrderingFilter):

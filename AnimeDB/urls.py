@@ -1,6 +1,6 @@
 
 from django.urls import path
-
+from .models import Item
 from .views import ItemFilterView, ItemDetailView, ItemCreateView, ItemUpdateView, ItemDeleteView
 
 urlpatterns = [

@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
 from .models import Item
-
 from .filters import ItemFilter
 from .forms import ItemForm
 
@@ -47,14 +46,43 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
     form_class = ItemForm
     success_url = reverse_lazy('index')
 
+    def form_valid(self, form):
+        """
+        登録処理
+        """
+        item = form.save(commit=False)
+        item.created_by = self.request.user
+        item.updated_by = self.request.user
+        item.save()
+
+        return HttpResponseRedirect(self.success_url)
+
 # 更新画面
 class ItemUpdateView(LoginRequiredMixin, UpdateView):
     model = Item
     form_class = ItemForm
     success_url = reverse_lazy('index')
 
+    def form_valid(self, form):
+            """
+            更新処理
+            """
+            item = form.save(commit=False)
+            item.updated_by = self.request.user
+            item.save()
+
+            return HttpResponseRedirect(self.success_url)
 
 # 削除画面
 class ItemDeleteView(LoginRequiredMixin, DeleteView):
     model = Item
     success_url = reverse_lazy('index')
+
+    def delete(self, request, *args, **kwargs):
+        """
+        削除処理
+        """
+        item = self.get_object()
+        item.delete()
+
+        return HttpResponseRedirect(self.success_url)
